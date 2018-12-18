@@ -1,0 +1,8 @@
+#!/bin/bash
+streamer -o first.jpeg 
+cp first.jpeg f.jpg
+[ "$PAM_TYPE" = "open_session" ]
+{
+printf "\nSorry!Someone tried to access your laptop!!\nUser is:$PAM_USER\n^d"
+} | mail -s "Invalid Login" -A f.jpg phanirohitha.kaza@gmail.com
+exit 0
